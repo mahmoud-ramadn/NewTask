@@ -586,7 +586,8 @@
 
       </div>
     </div>
- <div class=" relative md:w-[600px] w-full   bg-yellow-300 ">
+ <div class=" relative md:w-[600px] w-full   ">
+
   <div class="  absolute right-0  top-0 text-white bg-blue w-[120px] h-[60px] flex items-center justify-center ">
     <span>search</span>
   </div>

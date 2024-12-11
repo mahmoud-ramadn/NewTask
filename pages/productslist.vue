@@ -8,7 +8,7 @@
 
    <div class=" md:w-[1170px] mx-auto      grid md:grid-cols-6   grid-cols-1  gap-8 justify-center h-full ">
 
-    <div class="   md:col-span-2  col-span-1  flex  flex-col justify-between gap-8 ">
+    <div class="   md:col-span-2  col-span-1  flex  flex-col  gap-8 ">
 
       <div class=" w-full flex  flex-col       gap-7  h-[371px] rounded-sm  px-5   py-4 bg-[#E5E5E5]">
         <h4 class="  text-darkblue font-semibold text-lg ">ACCESORIES</h4>
@@ -63,16 +63,128 @@
       <button class="  h-14 text-darkblue bg-[#E5E5E5] rounded ">
         MORE
       </button>
-
-
-
-
-
-
     </div>
 
-    <div class="  h-full   md:col-span-4 col-span-1 bg-green-400">
-s
+    <div class="  h-full   md:col-span-4 col-span-1   ">
+
+     <div class="  w-full md:h-[340px] bg-blue rounded-sm   p-14 setImg  " >
+
+       <div class="h-[188px]  flex flex-col justify-between  items-start   w-[280px] text-white ">
+         <h1  class="  text-4xl font-thin">iPhone 8</h1>
+         <p class=" text-base">Performance and design. Taken right to the edge.</p>
+         <button
+          class="font-bold decoration-3 underline-offset-4 text-sm underline"
+        >
+          SHOP NOW
+        </button>
+       </div>
+
+
+     </div>
+
+<div class=" w-full my-7 h-14  text-sm   font-thin bg-[#F6F7F8] flex md:justify-between   p-5  items-center ">
+<div  class=" flex   items-center gap-5">
+<span>13 Items</span>
+ <div class="  flex items-center gap-3">
+    <span>
+      Sort By
+    </span>
+  <el-dropdown split-button  style="background-color: transparent;">
+      name
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item>Action 1</el-dropdown-item>
+        <el-dropdown-item>Action 2</el-dropdown-item>
+        <el-dropdown-item>Action 3</el-dropdown-item>
+        <el-dropdown-item>Action 4</el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+
+ </div>
+ <div class=" flex items-center  gap-3 ">
+    <span>
+      show
+    </span>
+  <el-dropdown split-button  style="  background-color: transparent;">
+      12
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item> 1</el-dropdown-item>
+        <el-dropdown-item>2</el-dropdown-item>
+        <el-dropdown-item> 3</el-dropdown-item>
+        <el-dropdown-item>4</el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
+
+ </div>
+
+</div>
+
+
+<div class=" space-x-3" >
+  <Icon name="subway:box-1"   style="color: #4e4d4b" />
+  <Icon name="heroicons:bars-4-16-solid" width="36px" height="36px"  style="color: #4e4d4b" />
+</div>
+      </div>
+
+      <!-- products list -->
+      <div  v-for="(product,index) in ProductsData" :key="index" >
+        <div class=" md:h-[328px] flex items-start gap-7">
+          <div  class=" md:w-[270px] md:h-[270px]   border-[1px] overflow-hidden   shadow-sm rounded-sm ">
+            <img class="w-full h-full    object-cover " :src="product.imge" alt="">
+          </div>
+          <div class="md:w-[570px] md:h-[300px]">
+            <div class=" flex flex-col justify-between md:h-[134px]">
+              <h2 class=" text-darkblue text-2xl  font-semibold ">{{   product.title }}</h2>
+              <div class=" flex items-center gap-4">
+                <el-rate v-model="value2" clearable /> <span class=" text-primary">0 reviews</span>  <button class=" text-blue   underline-offset-1  decoration-3 underline decoration-blue  ">Submit a review</button>
+              </div>
+               <hr class="  bg-[#F6F7F8] h-[2px]   my-4 w-full  ">
+               <p class="  text-2xl   font-medium text-danger flex gap-5   ">{{ product.price }}
+                <span class="  text-2xl  text-primary   line-through  ">{{ product.discout }}</span>
+              </p>
+
+
+
+            </div>
+              <div class=" md:h-[141px] flex  flex-col justify-between ">
+                <p class=" text-sm    leading-6  font-thin ">Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...
+                </p>
+
+
+                 <div class=" flex items-center gap-8">
+                <button  type="button" class=" flex items-center  justify-center gap-3  text-sm    font-semibold  text-[#33A0FF]  rounded-sm  w-40  h-12 bg-blue/30"><Icon name="iconoir:cart"  class=" font-semibold  text-lg   text-[#33A0FF] " />  Add To Cart</button>
+                <button  type="button" class="  text-sm    font-semibold  text-[#33A0FF]  rounded-sm   w-12  h-12 bg-blue/30">
+                  <Icon name="weui:like-outlined"  class="  text-lg text-[#33A0FF] font-semibold " />
+                  </button>
+
+
+
+                 </div>
+
+
+
+              </div>
+
+
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
     </div>
 
 
@@ -131,4 +243,90 @@ const selectedCity = ref("");
 const selectCity = (cityName:string) => {
   selectedCity.value = cityName;
 };
+
+const ProductsData=[
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+  {
+      title:'Beats Solo2 On Ear Headphones - Black',
+    imge:'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    price:'$499',
+    discout:'$599',
+    desc:'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...',
+  },
+
+
+
+]
+
+const value2= ref(3)
+const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
+
 </script>
+
+ <style  scoped>
+ .setImg{
+  background-repeat: no-repeat;
+   background-position: right;
+   background-image: url('../public/img/featuredProducts/banner.svg');
+
+ }
+
+ .demo-rate-block {
+  padding: 30px 0;
+  text-align: center;
+  border-right: solid 1px var(--el-border-color);
+  display: inline-block;
+  width: 49%;
+  box-sizing: border-box;
+}
+.demo-rate-block:last-child {
+  border-right: none;
+}
+.demo-rate-block .demonstration {
+  display: block;
+  color: var(--el-text-color-secondary);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+</style>
