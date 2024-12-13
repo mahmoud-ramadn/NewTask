@@ -1,5 +1,8 @@
 <template>
-  <div
+
+   <div>
+
+    <div
     class="relative h-[652px] overflow-hidden w-full flex justify-center items-center bg-gradient-to-l from-[#FF4858] to-[#8F65FF]"
   >
     <div
@@ -38,12 +41,11 @@
 
   <!-- Best Seller -->
   <div
-    class="md:w-[1170px] mx-auto md:h-[950px] flex flex-col items-center text-center mt-[88px]"
+    class="md:w-[1170px] mx-auto flex flex-col items-center text-center mt-[88px]"
   >
-    <div
-      class="md:w-[470px] md:h-[90px] flex flex-col justify-between items-center"
-    >
+    <div class="md:w-[470px] flex flex-col justify-between items-center">
       <h1 class="text-3xl text-darkblue font-bold">BEST SELLER</h1>
+
       <ul
         class="md:w-full w-[300px] flex mt-7 justify-between items-center text-sm font-semibold"
       >
@@ -69,25 +71,33 @@
       </ul>
 
       <div
-        class="md:w-[1170px] md:h-[780px] mt-7 grid md:grid-cols-3 lg:grid-cols-4 gap-8 grid-cols-1"
+        class="md:w-[1170px] w-full mt-7 grid md:grid-cols-3 lg:grid-cols-4 gap-8 grid-cols-1"
       >
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
+        <NuxtLink
+          v-for="(product, index) in visibleProducts"
+          :key="index"
+          :to="`product/${product.id}`"
+          class="col-span-1 h-[349px] flex flex-col justify-between space-y-5 items-center p-4 rounded-sm pt-[30px] relative pb-[35px] border-[1px]"
         >
+          <!-- تصنيف "Hot" -->
           <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
+            class="w-[40px] h-[21px] self-start flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
           >
             Hot
           </h5>
+
+          <!-- صورة المنتج -->
           <img
             class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
+            :src="product.images[0]"
             alt=""
           />
+          <!-- تفاصيل المنتج -->
           <div
             class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
           >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
+            <h4 class="text-xs">{{ product.title }}</h4>
+
             <div>
               <span>
                 <Icon
@@ -108,314 +118,24 @@
                 />
               </span>
             </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
+
+            <small class="text-danger">
+              ${{ product.price }}
+              <span class="line-through text-primary">$599</span>
+            </small>
           </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
-        <div
-          class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-        >
-          <h5
-            class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-          >
-            Hot
-          </h5>
-          <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-            src="../public/img/Labtop.svg"
-            alt=""
-          />
-          <div
-            class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-          >
-            <h4 class="text-xs">Apple Macbook Pro</h4>
-            <div>
-              <span>
-                <Icon
-                  v-for="n in 3"
-                  :key="n"
-                  name="ic:baseline-star"
-                  width="36px"
-                  height="36px"
-                  style="color: #ebc101"
-                />
-                <Icon
-                  v-for="n in 2"
-                  :key="n"
-                  name="material-symbols-light:star-outline"
-                  width="36px"
-                  height="36px"
-                  class="text-primary"
-                />
-              </span>
-            </div>
-            <small class="text-danger"
-              >$499 <span class="line-through text-primary">$599</span></small
-            >
-          </div>
-        </div>
+        </NuxtLink>
       </div>
 
+      <!-- زر تحميل المزيد -->
       <button
+        type="button"
+        @click="toggleLoadMore"
         class="text-blue font-bold decoration-3 underline-offset-4 mt-[89px] text-sm underline"
       >
-        LOAD MORE
+        {{ loadMoreButtonText }}
       </button>
     </div>
-    <!-- Cards -->
   </div>
 
   <!-- banner -->
@@ -447,9 +167,11 @@
     </div>
   </div>
 
-  <div class="container  md:h-[1060px]  px-4    mx-auto flex flex-col items-center justify-between mt-24">
+  <div
+    class="container md:h-[1060px] px-4 mx-auto flex flex-col items-center justify-between mt-24"
+  >
     <div
-      class="md:w-[1170px]     md:h-[249px] grid md:grid-cols-3 grid-cols-1 gap-20"
+      class="md:w-[1170px] md:h-[249px] grid md:grid-cols-3 grid-cols-1 gap-20"
     >
       <div
         v-for="(item, index) in whyUsData"
@@ -464,8 +186,9 @@
 
     <!-- lastes news -->
 
-
-    <div class="md:w-[1163px]   mt-28 md:h-[265px]  md:mb-[140px]  mb-[500px]  text-center">
+    <div
+      class="md:w-[1163px] mt-28 md:h-[265px] md:mb-[140px] mb-[500px] text-center"
+    >
       <h1 class="font-semibold text-3xl text-darkblue">LATEST NEWS</h1>
 
       <div
@@ -514,7 +237,9 @@
     </div>
 
     <!-- FEATURED PRODUCTS -->
-    <div class="md:w-[1163px] md:h-[265px] mx-auto  md:mb-[130px] mb-[500px] text-center">
+    <div
+      class="md:w-[1163px] md:h-[265px] mx-auto md:mb-[130px] mb-[500px] text-center"
+    >
       <h1 class="font-semibold text-3xl text-darkblue">FEATURED PRODUCTS</h1>
 
       <div
@@ -523,9 +248,7 @@
         <div class="col-span-1 h-full flex items-center gap-5">
           <img src="../public/img/featuredProducts/one.svg" alt="" />
           <div class="w-[200px] h-[120px] text-start">
-            <small class="text-primary font-bold"
-              >H-Squared tvTray</small
-            >
+            <small class="text-primary font-bold">H-Squared tvTray</small>
             <p>
               <Icon
                 v-for="n in 3"
@@ -565,9 +288,7 @@
         <div class="col-span-1 h-full flex items-center gap-5">
           <img src="../public/img/featuredProducts/three.svg" alt="" />
           <div class="w-[200px] h-[120px] text-start">
-            <small class="text-primary font-bold"
-              >Netatmo Rain Gauge</small
-            >
+            <small class="text-primary font-bold">Netatmo Rain Gauge</small>
             <p>
               <Icon
                 v-for="n in 3"
@@ -583,57 +304,109 @@
             >
           </div>
         </div>
-
       </div>
     </div>
- <div class=" relative md:w-[600px] w-full   ">
-
-  <div class="  absolute right-0  top-0 text-white bg-blue w-[120px] h-[60px] flex items-center justify-center ">
-    <span>search</span>
+    <div class="relative md:w-[600px] w-full">
+      <div
+        class="absolute right-0 top-0 text-white bg-blue w-[120px] h-[60px] flex items-center justify-center"
+      >
+        <span>search</span>
+      </div>
+      <input
+        type="text"
+        placeholder="Search query..."
+        class="pl-5 w-full h-[60px] border-[2px] focus:outline-none"
+      />
+    </div>
   </div>
-   <input type='text' placeholder="Search query..."   class=" pl-5 w-full   h-[60px] border-[2px] focus:outline-none ">
- </div>
-
-  </div>
+   </div>
 </template>
 
 <script setup lang="ts">
+const CurrentDisplayedProduct = ref(8);
+
+interface TCategory {
+  name: string;
+  image: string;
+}
+
+interface Tproducts {
+  id: string;
+  title: string;
+  price: number;
+  category: TCategory;
+  images: string[];
+}
+
 const CarouselData = [
   {
-    heroImg: '/img/hero.svg',
+    heroImg: "/img/hero.svg",
   },
 ];
+
+const ProductsData = ref<Tproducts[]>([]);
+
+const { data, refersh, pending } = await useAsyncGql({
+  operation: "GetProducts",
+  variables: { limit: 15 },
+});
+
+ProductsData.value = data.value.products;
+
+const totalProducts = ref<number>(15);
+
+// دالة لتحميل المزيد من المنتجات
+const toggleLoadMore = () => {
+  // إذا كانت جميع المنتجات معروضة بالفعل، نعرض فقط أول 8 منتجات
+  if (CurrentDisplayedProduct.value === totalProducts.value) {
+    CurrentDisplayedProduct.value = 8;
+  } else {
+    // زيادة عدد المنتجات المعروضة بـ 4 في كل مرة
+    CurrentDisplayedProduct.value += 4;
+  }
+};
+
+const visibleProducts = computed(() => {
+  return ProductsData.value.slice(0, CurrentDisplayedProduct.value);
+});
+
+const loadMoreButtonText = computed(() => {
+  if (CurrentDisplayedProduct.value === totalProducts.value) {
+    return "SHOW LESS";
+  } else if (CurrentDisplayedProduct.value >= totalProducts.value) {
+    return "No  more data";
+  } else {
+    return "LOAD MORE";
+  }
+});
 
 const whyUsData = [
   {
-    icon: 'material-symbols:delivery-truck-speed-outline-rounded',
-    titel: 'FREE SHIPPING',
-    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+    icon: "material-symbols:delivery-truck-speed-outline-rounded",
+    titel: "FREE SHIPPING",
+    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
   },
   {
-    icon: 'hugeicons:transaction',
-    titel: '100% REFUND',
-    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+    icon: "hugeicons:transaction",
+    titel: "100% REFUND",
+    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
   },
   {
-    icon: 'fluent:person-support-20-regular',
-    titel: 'FREE SHIPPING',
-    des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+    icon: "fluent:person-support-20-regular",
+    titel: "FREE SHIPPING",
+    des: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor minim veniam, quis nostrud  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
   },
 ];
 </script>
-
 <style scoped>
 .setimg {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('/img/phoneOne.svg');
+  background-image: url("/img/phoneOne.svg");
 }
-
 .el-carousel {
   height: 400px;
 }
-
 .el-carousel__item h3 {
   color: #475669;
   opacity: 0.75;
@@ -641,12 +414,19 @@ const whyUsData = [
   margin: 0;
   text-align: center;
 }
-
 .el-carousel__item:nth-child(2n) {
   background-color: transparent;
 }
-
 .el-carousel__item:nth-child(2n + 1) {
   background-color: transparent;
+}
+product-link {
+  transition: transform 0.3s ease-in-out;
+}
+.product-1 {
+  background-color: lightyellow;
+}
+.product-2 {
+  background-color: lightblue;
 }
 </style>

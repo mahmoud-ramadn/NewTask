@@ -16,10 +16,12 @@
     "@nuxtjs/tailwindcss": "^6.12.2",
     "element-plus": "^2.9.0",
     "nuxt": "^3.14.1592",
+    "nuxt-graphql-client": "^0.2.43",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@iconify-json/iwwa": "^1.2.0",
     "pug": "^3.0.3",
     "pug-plain-loader": "^1.1.0",
     "sass": "^1.82.0",

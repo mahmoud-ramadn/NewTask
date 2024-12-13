@@ -4,6 +4,9 @@
     </div>
 <!-- banner  -->
 
+
+
+
 <div class=" container mx-auto  mt-14">
 
    <div class=" md:w-[1170px] mx-auto      grid md:grid-cols-6   grid-cols-1  gap-8 justify-center h-full ">
