@@ -6,27 +6,27 @@
     <div class="container mx-auto">
       <div class="grid md:grid-cols-5 grid-cols-1 gap-4">
         <!-- Left Column (Product Info or Image) -->
-        <div class="md:col-span-4 col-span-1 flex flex-col justify-between h-[967px]">
+        <div class="md:col-span-4 col-span-1 flex flex-col justify-between md:h-[967px]">
           <!-- part one -->
           <div class="md:h-[464px] grid md:grid-cols-5 gap-6 grid-cols-1">
             <div  v-if="loading" class=" md:col-span-2 col-span-1 px-8  h-[300px] bg-gray-600 rounded-md flex items-center   justify-center "  >
-                loaindg fuck  user plz wait
+                loaindg..
               </div>
-            <div v-else  class="md:col-span-2 col-span-1 h-full px-8">
+            <div v-else  class="md:col-span-2 col-span-1 h-full gap-2 px-8">
               <img class="w-full" :src="productinfo?.images[0]" alt="product image" />
 
-              <div class="h-20 flex justify-between">
-                <div class="h-[73px] w-[73px] border-[1px]">
-                  <img :src="productinfo?.images[0]" alt="">
+              <div class=" w-full h-20 flex justify-between ">
+                <div class="h-[73px] w-[73px] border-[1px] overflow-hidden">
+                  <img  class="  w-full h-full" :src="productinfo?.images[0]" alt="">
                 </div>
-                <div class="h-[73px] w-[73px] border-[1px]">
+                <div class="h-[73px] w-[73px]  border-blue  border-[2px] ">
                   <img :src="productinfo?.images[1]" alt="">
                 </div>
                 <div class="h-[73px] w-[73px] border-[1px]">
                   <img :src="productinfo?.images[2]" alt="">
                 </div>
-                <div class="h-[73px] w-[73px] border-[1px]">
-                  <img :src="productinfo?.images[3]" alt="">
+                <div class="h-[73px] w-[73px] border-[1px] bg-green-400">
+                  <img :src="productinfo?.category.image" alt="">
                 </div>
               </div>
             </div>
@@ -86,10 +86,10 @@
                     class="flex items-center gap-4"
                   >
                     <div
-                      class="w-[24px] h-[24px] rounded-full cursor-pointer p-2"
+                      class="w-[24px] h-[24px] rounded-full cursor-pointer  p-3  "
                       :style="{ backgroundColor: color }"
                       :class="{
-                        'border-[2px]   border-blue  shadow-md':
+                        'border-[3px]   border-blue  outline-[1px]   outline-white '  :
                           activeIndex === index,
                       }"
                       @click="setActive(index)"
@@ -228,22 +228,21 @@
         </div>
 
         <!-- Right Column (Carousel) -->
-        <div class="md:col-span-1 col-span-1 md:h-[877px] space-y-2">
+        <div class="md:col-span-1 col-span-1  space-y-2">
           <div class="md:h-[428px]">
             <h3 class="text-primary font-medium text-lg">BEST SELLER</h3>
 
             <el-carousel indicator-position="outside">
               <el-carousel-item
-                v-for="(product, index) in ProductCarouse"
-                :key="index"
+            v-for="(item,index) in  productinfo?.images" :key="index"
                 style="height: 372px"
               >
                 <div
-                  class="border-2 w-full flex flex-col h-full p-3 space-y-2 items-center"
+                  class="border-2 w-full flex flex-col h-full  space-y-2 items-center"
                 >
-                  <img class="h-[153px] w-full" :src="product.imge" alt="" />
+                  <img class="  h-full object-cover w-full" :src="item" alt="" />
                   <h1 class="font-semibold text-darkblue text-sm">
-                    {{ product.title }}
+                    {{ productinfo?.title }}
                   </h1>
                   <el-rate v-model="value" clearable />
                   <small class="text-danger"
@@ -278,11 +277,14 @@
         <h1 class="text-center font-bold text3xl text-darkblue">
           RELATED PRODUCTS
         </h1>
+
+
         <div
-          class="md:w-[1170px] mx-auto md:h-[780px] mt-7 grid md:grid-cols-3 lg:grid-cols-4 gap-8 grid-cols-1"
+          class="md:w-[1170px] mx-auto md:h-[780px]    mt-7 grid md:grid-cols-3 lg:grid-cols-4 gap-8 grid-cols-1"
         >
           <div
-            class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
+            v-for="(itme,index) in RealatedProductsData  "  :key="index"
+            class="grid col-span-1 md:h-[349px] px-4 rounded-sm pt-[30px]  space-y-4 pb-[35px] border-[1px]"
           >
             <h5
               class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
@@ -290,14 +292,14 @@
               Hot
             </h5>
             <img
-              class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-              src="../public/img/Labtop.svg"
+              class="w-full h-full "
+              :src="itme.images[0]"
               alt=""
             />
             <div
               class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
             >
-              <h4 class="text-xs">Apple Macbook Pro</h4>
+              <h4 class="text-xs">{{ itme.title }}</h4>
               <div>
                 <span>
                   <Icon
@@ -319,141 +321,13 @@
                 </span>
               </div>
               <small class="text-danger"
-                >$499 <span class="line-through text-primary">$599</span></small
-              >
-            </div>
-          </div>
-          <div
-            class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-          >
-            <h5
-              class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-            >
-              Hot
-            </h5>
-            <img
-              class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-              src='../../public/img/cam.svg'
-              alt=" CAME"
-            />
-            <div
-              class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-            >
-              <h4 class="text-xs">Apple Macbook Pro</h4>
-              <div>
-                <span>
-                  <Icon
-                    v-for="n in 3"
-                    :key="n"
-                    name="ic:baseline-star"
-                    width="36px"
-                    height="36px"
-                    style="color: #ebc101"
-                  />
-                  <Icon
-                    v-for="n in 2"
-                    :key="n"
-                    name="material-symbols-light:star-outline"
-                    width="36px"
-                    height="36px"
-                    class="text-primary"
-                  />
-                </span>
-              </div>
-              <small class="text-danger"
-                >$499 <span class="line-through text-primary">$599</span></small
-              >
-            </div>
-          </div>
-          <div
-            class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-          >
-            <h5
-              class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-            >
-              Hot
-            </h5>
-            <img
-              class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-              src="../public/img/Labtop.svg"
-              alt=""
-            />
-            <div
-              class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-            >
-              <h4 class="text-xs">Apple Macbook Pro</h4>
-              <div>
-                <span>
-                  <Icon
-                    v-for="n in 3"
-                    :key="n"
-                    name="ic:baseline-star"
-                    width="36px"
-                    height="36px"
-                    style="color: #ebc101"
-                  />
-                  <Icon
-                    v-for="n in 2"
-                    :key="n"
-                    name="material-symbols-light:star-outline"
-                    width="36px"
-                    height="36px"
-                    class="text-primary"
-                  />
-                </span>
-              </div>
-              <small class="text-danger"
-                >$499 <span class="line-through text-primary">$599</span></small
-              >
-            </div>
-          </div>
-          <div
-            class="grid col-span-1 h-[349px] px-4 rounded-sm pt-[30px] pb-[35px] border-[1px]"
-          >
-            <h5
-              class="w-[40px] h-[21px] flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
-            >
-              Hot
-            </h5>
-            <img
-              class="w-full md:w-[236px] h-[153px] border-b-[1px]"
-              src="../public/img/Labtop.svg"
-              alt=""
-            />
-            <div
-              class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
-            >
-              <h4 class="text-xs">Apple Macbook Pro</h4>
-              <div>
-                <span>
-                  <Icon
-                    v-for="n in 3"
-                    :key="n"
-                    name="ic:baseline-star"
-                    width="36px"
-                    height="36px"
-                    style="color: #ebc101"
-                  />
-                  <Icon
-                    v-for="n in 2"
-                    :key="n"
-                    name="material-symbols-light:star-outline"
-                    width="36px"
-                    height="36px"
-                    class="text-primary"
-                  />
-                </span>
-              </div>
-              <small class="text-danger"
-                >$499 <span class="line-through text-primary">$599</span></small
+                >${{ itme.price }} <span class="line-through text-primary">$599</span></small
               >
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    
+    </div>    
   </div>
 </template>
 
@@ -462,17 +336,15 @@ const value = ref(3);
 const value1 = ref(3);
 import type { TabsPaneContext } from "element-plus";
 
-const CircelsColor = ["#006CFF", "#FC3E39", "#171717", "#FFF600"];
-const activeIndex = ref<number | null>(0);
 
 
+
+// single products
 const productId = useRoute().params.id;
-
 interface TCategory{
   name: string;
   image: string;
 }
-
 interface TProduct{
   description: string;
   title: string;
@@ -481,25 +353,21 @@ interface TProduct{
   category: TCategory;
   
 }
-
 const loading = ref(false);
-
 const productinfo = ref<TProduct|null>(null);
 
-
-
-    const { data , pending } = await useAsyncGql({
+    const { data, pending } = await useAsyncGql({
       operation: "getProduct",
       variables: { id: productId },
     });
+
     productinfo.value= data.value.product;
-
-
-loading.value === pending;
-    
+     loading.value === pending;
 const setActive = (index: number) => {
   activeIndex.value = index;
 };
+
+
 const ProductsData = {
   title: "Beats Solo2 On Ear Headphones - Black",
   imge: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -508,33 +376,51 @@ const ProductsData = {
   desc: "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...",
 };
 
-const ProductCarouse = [
-  {
-    title: "Apple Macbook Pro",
-    imge: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    price: "$499",
-    discout: "$599",
-    desc: "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...",
-  },
-  {
-    title: "Apple Macbook Pro",
-    imge: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    price: "$499",
-    discout: "$599",
-    desc: "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ...",
-  },
-];
 
+
+
+
+
+const CircelsColor = ["#006CFF", "#FC3E39", "#171717", "#FFF600"];
+const activeIndex = ref<number | null>(0);
 const num = ref(1);
 const handleChange = (value: number) => {
   console.log(value);
 };
-
 const activeName = ref("first");
-
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event);
 };
+
+//  RELATED PRODUCTS
+
+interface TCategory {
+  name: string;
+  image: string;
+}
+
+interface Tproducts {
+  id: string;
+  title: string;
+  price: number;
+  category: TCategory;
+  images: string[];
+}
+const RealatedProductsData = ref<Tproducts[]>([]);
+
+
+try {
+  const { data:Realtaed } = await useAsyncGql({
+  operation: "Realted",
+});
+
+RealatedProductsData.value =Realtaed.value.products;
+
+} catch (error){
+  console.log(error);
+  
+}
+
 </script>
 
 <style scoped>

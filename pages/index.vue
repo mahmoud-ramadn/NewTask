@@ -3,27 +3,77 @@
    <div>
 
     <div
-    class="relative h-[652px] overflow-hidden w-full flex justify-center items-center bg-gradient-to-l from-[#FF4858] to-[#8F65FF]"
+  class="relative h-[652px] w-full flex justify-center items-center bg-gradient-to-l from-[#FF4858] to-[#8F65FF]"
+>
+  <div
+    class="w-full h-full flex justify-center items-center overflow-hidden"
   >
-    <div
-      class="md:w-[1005px] overflow-hidden h-full pt-6 md:h-[670px] flex md:justify-center justify-between md:flex-row flex-col items-center"
+    <el-carousel
+      class="w-full h-full"
+         
+      height="100%"
+      indicator-position="outside"
     >
-      <div
-        class="w-[330px] md:h-[232px] h-1/2 flex flex-col justify-between text-white"
-      >
-        <h1 class="font-bold text-4xl">iPhone X</h1>
-        <p class="h-[66px] text-sm font-thin">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy.
-        </p>
-        <button class="w-11 h-7 underline-offset-4 underline text-sm font-bold">
-          MORE
-        </button>
-      </div>
-      <img class="h-full" src="/img/hero.svg" alt="" />
-    </div>
+      <el-carousel-item >
+        <div class="  md:w-[1066px] mx-auto h-full flex items-center md:flex-row flex-col justify-between  px-8 pt-2 ">
+          <div class=" md:w-[330px] h-[250px] text-white  flex  flex-col justify-between  items-start ">
+            <h2 class=" text-4xl font-bold  ">iPhone X</h2>
+            <p class=" text-sm  leading-5" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <button class=" font-bold text-sm    underline-offset-4 decoration-[4px] underline ">MORE</button>
+          </div>
+          <img
+           class=" h-full"
+          src="../public/img/hero.svg"
+          alt="Slide 1"
+        />
+
+        </div>
+      </el-carousel-item>
+
+      <el-carousel-item >
+        <div class="  md:w-[1066px] mx-auto h-full flex items-center justify-between md:flex-row flex-col   px-8 pt-2 ">
+          <div class=" md:w-[330px] h-[250px] text-white  flex  flex-col justify-between  items-start ">
+            <h2 class=" text-4xl font-bold  ">iPhone X</h2>
+            <p class=" text-sm  leading-5" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <button class=" font-bold text-sm    underline-offset-4 decoration-[4px] underline ">MORE</button>
+          </div>
+          <img
+           class=" h-full"
+          src="../public/img/newTwo.svg"
+          alt="Slide 1"
+        />
+
+        </div>
+       
+
+
+      </el-carousel-item>
+
+
+      <el-carousel-item >
+        <div class="  md:w-[1066px] mx-auto h-full flex items-center md:flex-row flex-col justify-between  px-8 pt-2 ">
+          <div class=" md:w-[330px] h-[250px] text-white  flex  flex-col justify-between  items-start ">
+            <h2 class=" text-4xl font-bold  ">iPhone X</h2>
+            <p class=" text-sm  leading-5" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+            <button class=" font-bold text-sm    underline-offset-4 decoration-[4px] underline ">MORE</button>
+          </div>
+          <img
+           class=" h-full"
+          src="../public/img/newThree.svg"
+          alt="Slide 1"
+        />
+
+        </div>
+       
+
+
+      </el-carousel-item>
+
+    </el-carousel>
   </div>
-  <!-- <div class="md:w-[1119px]  hidden absolute -bottom-7 mx-auto h-[332px] md:grid md:grid-cols-3 grid-cols-1">
+
+
+  <div class="md:w-[1119px]   hidden absolute   top-[600px] mx-auto h-[332px] md:grid md:grid-cols-3 grid-cols-1">
     <div class="md:col-span-1 h-full flex justify-end items-end bg-dangerlight">
       <img src="/img/phoneOne.svg" />
     </div>
@@ -37,13 +87,17 @@
     <div class="col-span-1 h-full relative flex justify-end items-end bg-primary">
       <img src="/img/three.png" />
     </div>
-  </div> -->
+  </div>
 
+</div>
+
+
+  
   <!-- Best Seller -->
   <div
-    class="md:w-[1170px] mx-auto flex flex-col items-center text-center mt-[88px]"
+    class="md:w-[1170px] mx-auto  flex flex-col items-center text-center md:mt-[330px] mt-[88px] "
   >
-    <div class="md:w-[470px] flex flex-col justify-between items-center">
+    <div class="md:w-[470px] flex flex-col justify-between items-center space-y-24 ">
       <h1 class="text-3xl text-darkblue font-bold">BEST SELLER</h1>
 
       <ul
@@ -77,22 +131,35 @@
           v-for="(product, index) in visibleProducts"
           :key="index"
           :to="`product/${product.id}`"
-          class="col-span-1 h-[349px] flex flex-col justify-between space-y-5 items-center p-4 rounded-sm pt-[30px] relative pb-[35px] border-[1px]"
+          class="col-span-1 h-[349px] flex flex-col    z-[9]  justify-between space-y-5 items-center p-4 rounded-sm pt-[30px] relative pb-[35px] border-[1px]"
         >
-          <!-- تصنيف "Hot" -->
+
+         <div class=" w-full h-[87%]   z-10  group absolute left-0   top-[10%]   ">
+        
+           <div class="  bg-white/70 w-full h-full  group-hover:flex   hidden items-center justify-around ">
+
+            <div class="w-[40px] h-[40px]  rounded-full  border-[2px]  border-blue flex items-center justify-center ">
+              <Icon name="weui:like-outlined"  class=" text-lg font-bold  text-blue" />
+            </div>
+            
+            <div class="w-[40px] h-[40px]  rounded-full  border-[2px]  border-blue flex items-center justify-center ">
+              <Icon name="iconoir:cart" class=" text-lg font-bold  text-blue" />
+            </div>
+
+           </div>
+
+         </div>
+
           <h5
             class="w-[40px] h-[21px] self-start flex items-center justify-center bg-dangerlight text-white font-semibold text-xs rounded-md"
           >
             Hot
           </h5>
-
-          <!-- صورة المنتج -->
           <img
-            class="w-full md:w-[236px] h-[153px] border-b-[1px]"
+            class="w-full  h-full border-b-[1px]"
             :src="product.images[0]"
             alt=""
           />
-          <!-- تفاصيل المنتج -->
           <div
             class="mx-auto mt-4 w-[129px] h-[85px] flex flex-col justify-between text-center items-center"
           >
@@ -127,18 +194,16 @@
         </NuxtLink>
       </div>
 
-      <!-- زر تحميل المزيد -->
       <button
+         :disabled="locked"
         type="button"
         @click="toggleLoadMore"
-        class="text-blue font-bold decoration-3 underline-offset-4 mt-[89px] text-sm underline"
+        class="text-blue font-bold decoration-3 underline-offset-4  text-sm underline"
       >
         {{ loadMoreButtonText }}
       </button>
     </div>
   </div>
-
-  <!-- banner -->
 
   <div class="mt-[151px] overflow-hidden w-full bg-blue md:h-[600px]">
     <div
@@ -168,7 +233,7 @@
   </div>
 
   <div
-    class="container md:h-[1060px] px-4 mx-auto flex flex-col items-center justify-between mt-24"
+    class="container  px-4 mx-auto flex flex-col items-center justify-between mt-24"
   >
     <div
       class="md:w-[1170px] md:h-[249px] grid md:grid-cols-3 grid-cols-1 gap-20"
@@ -306,7 +371,8 @@
         </div>
       </div>
     </div>
-    <div class="relative md:w-[600px] w-full">
+
+    <div class="relative    md:w-[600px] w-full">
       <div
         class="absolute right-0 top-0 text-white bg-blue w-[120px] h-[60px] flex items-center justify-center"
       >
@@ -318,11 +384,14 @@
         class="pl-5 w-full h-[60px] border-[2px] focus:outline-none"
       />
     </div>
+
   </div>
    </div>
+
 </template>
 
 <script setup lang="ts">
+
 const CurrentDisplayedProduct = ref(8);
 
 interface TCategory {
@@ -352,7 +421,7 @@ const { data, refersh, pending } = await useAsyncGql({
 });
 
 ProductsData.value = data.value.products;
-
+let locked=ref(false)
 const totalProducts = ref<number>(15);
 
 // دالة لتحميل المزيد من المنتجات
@@ -372,8 +441,12 @@ const visibleProducts = computed(() => {
 
 const loadMoreButtonText = computed(() => {
   if (CurrentDisplayedProduct.value === totalProducts.value) {
+
+
     return "SHOW LESS";
   } else if (CurrentDisplayedProduct.value >= totalProducts.value) {
+ 
+    locked.value=true;
     return "No  more data";
   } else {
     return "LOAD MORE";
@@ -404,22 +477,6 @@ const whyUsData = [
   background-repeat: no-repeat;
   background-image: url("/img/phoneOne.svg");
 }
-.el-carousel {
-  height: 400px;
-}
-.el-carousel__item h3 {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-  text-align: center;
-}
-.el-carousel__item:nth-child(2n) {
-  background-color: transparent;
-}
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: transparent;
-}
 product-link {
   transition: transform 0.3s ease-in-out;
 }
@@ -428,5 +485,34 @@ product-link {
 }
 .product-2 {
   background-color: lightblue;
+}
+
+
+
+
+
+.carousel-item {
+  color: #475669;
+  opacity: 0.75;
+  margin: 0;
+  text-align: center;
+}
+
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+}
+
+
+
+.el-carousel__item {
+  padding: 0 !important; /* Remove any padding */
+  margin: 0 !important;  /* Remove any margin */
+  box-sizing: border-box; /* Ensure box model consistency */
 }
 </style>
